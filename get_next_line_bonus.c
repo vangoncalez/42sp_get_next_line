@@ -6,13 +6,17 @@
 /*   By: vaferrei <vaferrei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 10:45:49 by vaferrei          #+#    #+#             */
-/*   Updated: 2021/09/20 07:59:09 by vaferrei         ###   ########.fr       */
+/*   Updated: 2021/09/20 09:11:30 by vaferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*make_backup(int fd, char *backup, char	*buffer)
+static char	*make_backup(int fd, char *backup, char	*buffer);
+static char	*make_line(char *backup);
+static char	*make_newbackup(char *backup);
+
+static char	*make_backup(int fd, char *backup, char	*buffer)
 {
 	int		readbuffer;
 	int		control;
@@ -41,7 +45,7 @@ char	*make_backup(int fd, char *backup, char	*buffer)
 	return (backup);
 }
 
-char	*make_line(char *backup)
+static char	*make_line(char *backup)
 {
 	int			i;
 	char		*line;
@@ -61,7 +65,7 @@ char	*make_line(char *backup)
 	return (line);
 }
 
-char	*make_newbackup(char *backup)
+static char	*make_newbackup(char *backup)
 {
 	int			i;
 	char		*newbackup;
